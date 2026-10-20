@@ -17,8 +17,8 @@ const dashboard = document.getElementById("dashboard");
 const dashboardContentController = document.getElementById("dashboard-display-controller");
 
 
-// suffix hour-unit as either singular or plural in form
-// const appropriateHourUnitText = (hourValue) => hourValue > 1 ? "hrs":"hr";
+// HOUR UNIT SUFFIXED IN SINGULAR/PLURAL FORM
+const appropriateHourUnitText = (hourValue) => hourValue > 1 ? "hrs":"hr";
 // RENDER DATA TO DOM
 const renderData = (json) => {
     json.forEach(object => {
@@ -42,7 +42,7 @@ const renderData = (json) => {
             div.className = timeframe[0];
             // current time
             const currentTime = document.createElement("time");
-            currentTime.textContent = timeframe[1].current + "hr";
+            currentTime.textContent = timeframe[1].current + appropriateHourUnitText(timeframe[1].current);
             div.appendChild(currentTime);
             // previous time
             const paragraph = document.createElement("p");
@@ -51,7 +51,7 @@ const renderData = (json) => {
             else if (timeframe[0]==="weekly") paragraphText = "Last Week";
             else if (timeframe[0]==="monthly") paragraphText = "Last Month";
             const previousTime = document.createElement("time");
-            previousTime.textContent = timeframe[1].previous + "hr";
+            previousTime.textContent = timeframe[1].previous + appropriateHourUnitText(timeframe[1].previous);
             
             // append child nodes to parent nodes
             paragraph.append(paragraphText, " - " , previousTime);
@@ -66,7 +66,27 @@ const renderData = (json) => {
 };
 // SELECT FOR DASHBOARD CONTENT
 const selectDashboardContent = (event) => {
-    console.log(event, event.target);
+    console.log(event, event.target.id);
+
+    // manipulate <main #dashboard>'s classlist for which content to display
+    switch (event.target.id) {
+        case "show-daily-time-button":
+            dashboard.classList.add("daily");
+            dashboard.classList.remove("weekly");
+            dashboard.classList.remove("monthly");
+            break;
+        case "show-weekly-time-button":
+            dashboard.classList.remove("daily");
+            dashboard.classList.add("weekly");
+            dashboard.classList.remove("monthly");
+            break;
+        case "show-monthly-time-button":
+            dashboard.classList.remove("daily");
+            dashboard.classList.remove("weekly");
+            dashboard.classList.add("monthly");
+            break;
+        default: break;
+    }
 };
 
 
