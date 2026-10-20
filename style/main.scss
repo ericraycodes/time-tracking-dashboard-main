@@ -24,6 +24,7 @@ $Font-size-body: calc((18/16) * 1rem);
     margin: 0;
 }
 
+
 // -----    DYNAMIC DISPLAY STYLING OF DASHBOARD CONTENT
 .dashboard.daily div:not(.daily) {
     display: none;
@@ -33,4 +34,86 @@ $Font-size-body: calc((18/16) * 1rem);
 }
 .dashboard.monthly div:not(.monthly) {
     display: none;
+}
+
+
+// -----    MOBILE LAYOUT: 320px minimum
+body {
+    min-width: 20rem;   // 320px
+    background-color: $Navy-950;
+
+    // typography
+    font-family: 'Rubik', sans-serif, Arial, Helvetica;
+    font-size: $Font-size-body;
+    color: White;
+
+    // spaces
+    padding-block: 3.75rem;
+    padding-inline: 1.5rem;
+
+    // arrange content: vertical
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+// ---  HEADER
+.header {
+    background-color: $Navy-900;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+// PROFILE
+.profile {
+    background-color: $Purple-600;
+    border-radius: 1rem;
+
+    // arrange content: horizontal
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    // spaces
+    padding: 2rem;
+}
+.profile-picture {
+    width: 4rem;
+    height: 4rem;
+    border: 0.2rem solid white;
+    border-radius: 50%;
+}
+.heading {
+    font-size: 1em;
+    font-weight: 400;
+
+    // arrange content
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+
+    span {
+        font-size: 0.75em;
+        color: $Navy-200;
+    }
+    strong {
+        font-size: 1.25em;
+        font-weight: 300;
+    }
+}
+// CONTENT CONTROLLER
+.dashboard-display-controller {
+    padding: 1rem;
+
+    // arrange buttons
+    display: flex;
+    justify-content: space-between;
+}
+.button {
+    // remove native styles
+    all: unset;
+    // spaces
+    padding: 1rem;
+    // typo
+    font-weight: 300;
 }

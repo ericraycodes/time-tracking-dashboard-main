@@ -14,3 +14,67 @@
 .dashboard.monthly div:not(.monthly) {
   display: none;
 }
+
+body {
+  min-width: 20rem;
+  background-color: hsl(226deg, 43%, 10%);
+  font-family: "Rubik", sans-serif, Arial, Helvetica;
+  font-size: 1.125rem;
+  color: White;
+  padding-block: 3.75rem;
+  padding-inline: 1.5rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.header {
+  background-color: hsl(235deg, 46%, 20%);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.profile {
+  background-color: hsl(246deg, 80%, 60%);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+}
+
+.profile-picture {
+  width: 4rem;
+  height: 4rem;
+  border: 0.2rem solid white;
+  border-radius: 50%;
+}
+
+.heading {
+  font-size: 1em;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.heading span {
+  font-size: 0.75em;
+  color: hsl(236deg, 100%, 87%);
+}
+.heading strong {
+  font-size: 1.25em;
+  font-weight: 300;
+}
+
+.dashboard-display-controller {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  all: unset;
+  padding: 1rem;
+  font-weight: 300;
+}
