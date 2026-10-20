@@ -21,6 +21,8 @@
     />
     <!-- script file -->
     <script defer src="./main.js"></script>
+    <!-- local stylesheet -->
+    <link rel="stylesheet" href="./style/main.css"/>
   </head>
   <body>
     <header>
@@ -32,15 +34,17 @@
         </h1>
       </div>
 
-      <nav>
+      <nav id="dashboard-display-controller">
         <ul>
-          <li><a href="#">Daily</a></li>
-          <li><a href="#">Weekly</a></li>
-          <li><a href="#">Monthly</a></li>
+          <li><a id="display-daily" href="#">Daily</a></li>
+          <li><a id="display-weekly" href="#">Weekly</a></li>
+          <li><a id="display-monthly" href="#">Monthly</a></li>
         </ul>
       </nav>
     </header>
 
-    <main id="dashboard"></main>
+    <main id="dashboard">
+      <!-- Time-trackers are dynamically rendered here. -->
+    </main>
   </body>
 </html>
