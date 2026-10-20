@@ -11,6 +11,9 @@
 // Reference
 const dashboard = document.getElementById("dashboard");
 const dashboardContentController = document.getElementById("dashboard-display-controller");
+const showDailyTimeButton = document.getElementById("show-daily-time-button");
+const showWeeklyTimeButton = document.getElementById("show-weekly-time-button");
+const showMonthlyTimeButton = document.getElementById("show-monthly-time-button");
 
 
 // HOUR UNIT SUFFIXED IN SINGULAR/PLURAL FORM
@@ -60,19 +63,33 @@ const displaySelectedDashboardContent = (event) => {
     // manipulate <main #dashboard>'s classlist for which content to display
     switch (event.target.id) {
         case "show-daily-time-button":
+            // display state of dashboard
             dashboard.classList.add("daily");
             dashboard.classList.remove("weekly");
             dashboard.classList.remove("monthly");
+            // clicked state of button
+            showDailyTimeButton.classList.add("clicked");
+            showWeeklyTimeButton.classList.remove("clicked");
+            showMonthlyTimeButton.classList.remove("clicked");
             break;
         case "show-weekly-time-button":
+            // display state of dashboard
             dashboard.classList.remove("daily");
             dashboard.classList.add("weekly");
             dashboard.classList.remove("monthly");
-            break;
+            // clicked state of button
+            showDailyTimeButton.classList.remove("clicked");
+            showWeeklyTimeButton.classList.add("clicked");
+            showMonthlyTimeButton.classList.remove("clicked");            break;
         case "show-monthly-time-button":
+            // display state of dashboard
             dashboard.classList.remove("daily");
             dashboard.classList.remove("weekly");
             dashboard.classList.add("monthly");
+            // clicked state of button
+            showDailyTimeButton.classList.remove("clicked");
+            showWeeklyTimeButton.classList.remove("clicked");
+            showMonthlyTimeButton.classList.add("clicked");
             break;
         default: break;
     }
