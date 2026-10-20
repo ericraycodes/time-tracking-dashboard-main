@@ -18,10 +18,12 @@ const appropriateHourValueUnit = (hourValue) => hourValue + (hourValue > 1 ? "hr
 // RENDER DATA TO DOM
 const renderData = (json) => {
     json.forEach(object => {
-        // create tracker <section>
+        // tracker <section> node
         const tracker = document.createElement("section");
+        tracker.className= "tracker";
+        dashboard.appendChild(tracker);
 
-        // tracker heading
+        // tracker heading node
         const trackerHeading = document.createElement("h2");
         trackerHeading.textContent = object.title;
         tracker.appendChild(trackerHeading);
@@ -30,30 +32,27 @@ const renderData = (json) => {
         for (const [timeframe, time] of  Object.entries(object.timeframes)) {
             console.log(timeframe, time);
 
-            // timeframe nodes
+            // timeframe node
             const div = document.createElement("div");
+            tracker.appendChild(div);
             div.className = timeframe;
-            // current time
+            
+            // current time node
             const currentTime = document.createElement("time");
             currentTime.textContent = appropriateHourValueUnit(time.current);
             div.appendChild(currentTime);
-            // previous time
+            
+            // previous time node
             const paragraph = document.createElement("p");
+            div.appendChild(paragraph);
             let paragraphText;
             if (timeframe==="daily") paragraphText = "Yesterday";
             else if (timeframe==="weekly") paragraphText = "Last Week";
             else if (timeframe==="monthly") paragraphText = "Last Month";
             const previousTime = document.createElement("time");
             previousTime.textContent = appropriateHourValueUnit(time.previous);
-            
-            // append child nodes to parent nodes
-            paragraph.append(paragraphText, " - ", previousTime);
-            div.appendChild(paragraph);
-            tracker.appendChild(div);
+            paragraph.append(paragraphText, " - ", previousTime); 
         }
-
-        // append tracker
-        dashboard.appendChild(tracker);
     });
 };
 // SELECT FOR DASHBOARD CONTENT
