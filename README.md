@@ -43,6 +43,18 @@ Users should be able to:
 
 ### What I learned
 
+I learned to make `git commit` with a **heading** and a **body** of text.
+```bash
+git commit -m "heading right here..
+>
+> The body of text starts right here after the single line
+> space above.
+> 
+> It is recommended that there be around a number of 
+> 50-70 characters per line.
+>
+> The body is ended with a closing quotation mark."
+```
 
 ### Continued development
 
