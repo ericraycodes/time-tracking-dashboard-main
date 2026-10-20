@@ -116,9 +116,14 @@ body {
 .button {
     // remove native styles
     all: unset;
-    // larger click area
+    // larger touch area
     padding: 1rem;
     // typo
     font-weight: 300;
-    color: $Navy-200;
+    // no 'clicked' state
+    color: $Purple-500;
+}
+.button:hover {
+    color: white;
+    cursor: pointer;
 }

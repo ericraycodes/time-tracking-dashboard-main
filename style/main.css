@@ -81,5 +81,10 @@ body {
   all: unset;
   padding: 1rem;
   font-weight: 300;
-  color: hsl(236deg, 100%, 87%);
+  color: hsl(235deg, 45%, 61%);
+}
+
+.button:hover {
+  color: white;
+  cursor: pointer;
 }
