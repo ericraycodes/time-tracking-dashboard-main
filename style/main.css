@@ -2,3 +2,15 @@
   box-sizing: border-box;
   margin: 0;
 }
+
+.dashboard.daily div:not(.daily) {
+  display: none;
+}
+
+.dashboard.weekly div:not(.weekly) {
+  display: none;
+}
+
+.dashboard.monthly div:not(.monthly) {
+  display: none;
+}
