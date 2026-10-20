@@ -1,7 +1,3 @@
-// debug
-console.log("DOM", Boolean(document.querySelector("body")));
-
-
 /**
  * DASHBOARD LOGIC
  * 
@@ -18,56 +14,50 @@ const dashboardContentController = document.getElementById("dashboard-display-co
 
 
 // HOUR UNIT SUFFIXED IN SINGULAR/PLURAL FORM
-const appropriateHourUnitText = (hourValue) => hourValue > 1 ? "hrs":"hr";
+const appropriateHourValueUnit = (hourValue) => hourValue + (hourValue > 1 ? "hrs":"hr");
 // RENDER DATA TO DOM
 const renderData = (json) => {
     json.forEach(object => {
-        console.log(object);
-
-        // create tracker <section.tracker>
+        // create tracker <section>
         const tracker = document.createElement("section");
-        // tracker.id = object.title.toLowerCase() + "-tracker";
-        // tracker.classList.add()
 
         // tracker heading
         const trackerHeading = document.createElement("h2");
         trackerHeading.textContent = object.title;
         tracker.appendChild(trackerHeading);
 
-        for (const timeframe of  Object.entries(object.timeframes)) {
-            console.log("timeframe:", timeframe);
+        console.log("\n", object.title)
+        for (const [timeframe, time] of  Object.entries(object.timeframes)) {
+            console.log(timeframe, time);
 
             // timeframe nodes
             const div = document.createElement("div");
-            div.className = timeframe[0];
+            div.className = timeframe;
             // current time
             const currentTime = document.createElement("time");
-            currentTime.textContent = timeframe[1].current + appropriateHourUnitText(timeframe[1].current);
+            currentTime.textContent = appropriateHourValueUnit(time.current);
             div.appendChild(currentTime);
             // previous time
             const paragraph = document.createElement("p");
             let paragraphText;
-            if (timeframe[0]==="daily") paragraphText = "Yesterday";
-            else if (timeframe[0]==="weekly") paragraphText = "Last Week";
-            else if (timeframe[0]==="monthly") paragraphText = "Last Month";
+            if (timeframe==="daily") paragraphText = "Yesterday";
+            else if (timeframe==="weekly") paragraphText = "Last Week";
+            else if (timeframe==="monthly") paragraphText = "Last Month";
             const previousTime = document.createElement("time");
-            previousTime.textContent = timeframe[1].previous + appropriateHourUnitText(timeframe[1].previous);
+            previousTime.textContent = appropriateHourValueUnit(time.previous);
             
             // append child nodes to parent nodes
-            paragraph.append(paragraphText, " - " , previousTime);
+            paragraph.append(paragraphText, " - ", previousTime);
             div.appendChild(paragraph);
             tracker.appendChild(div);
         }
 
-        // console.log(tracker);
         // append tracker
         dashboard.appendChild(tracker);
     });
 };
 // SELECT FOR DASHBOARD CONTENT
-const selectDashboardContent = (event) => {
-    console.log(event, event.target.id);
-
+const displaySelectedDashboardContent = (event) => {
     // manipulate <main #dashboard>'s classlist for which content to display
     switch (event.target.id) {
         case "show-daily-time-button":
@@ -91,17 +81,11 @@ const selectDashboardContent = (event) => {
 
 
 // ##### i.   FETCH JSON DATA
-// let DATA;
 fetch("./data.json")
     .then(response => {
-        // console.log("response:", response.ok , response);
         return response.json();
     })
     .then(json => {
-        // store json data
-        // DATA = json;
-        // console.log("JSON:", DATA);
-
         // ##### ii.  RENDER DATA TO DOM
         renderData(json);
     })
@@ -111,4 +95,4 @@ fetch("./data.json")
 
 
 // ##### iii.   CHANGE THE DISPLAY OF TIME TRACKERS ON USER EVENT
-dashboardContentController.addEventListener("click", selectDashboardContent);
+dashboardContentController.addEventListener("click", displaySelectedDashboardContent);
