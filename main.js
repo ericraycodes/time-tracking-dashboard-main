@@ -53,16 +53,18 @@ const renderData = (json) => {
             currentTime.className = "current-time";
             
             // previous time node
-            const paragraph = document.createElement("p");
-            div.appendChild(paragraph);
+            const previousTime = document.createElement("p");
+            div.appendChild(previousTime);
             let paragraphText;
             if (timeframe==="daily") paragraphText = "Yesterday";
             else if (timeframe==="weekly") paragraphText = "Last Week";
             else if (timeframe==="monthly") paragraphText = "Last Month";
-            const previousTime = document.createElement("time");
-            previousTime.textContent = appropriateHourValueUnit(time.previous);
-            paragraph.append(paragraphText, " - ", previousTime); 
-            paragraph.className = "previous-time";
+            const previousTimeText = document.createElement("span");
+            previousTimeText.textContent = paragraphText + " - ";
+            const previousTimeValue = document.createElement("time");
+            previousTimeValue.textContent = appropriateHourValueUnit(time.previous);
+            previousTime.append(previousTimeText, previousTimeValue); 
+            previousTime.className = "previous-time";
         }
     });
 };

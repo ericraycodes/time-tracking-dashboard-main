@@ -150,4 +150,13 @@ body {
 .previous-time {
   font-size: 0.8em;
   color: hsl(236deg, 100%, 87%);
+  -webkit-margin-start: auto;
+          margin-inline-start: auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+}
+.previous-time time {
+  -webkit-padding-start: 0.25rem;
+          padding-inline-start: 0.25rem;
 }

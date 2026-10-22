@@ -199,4 +199,14 @@ body {
 .previous-time {
     font-size: 0.8em;
     color: $Navy-200;
+    margin-inline-start: auto;
+
+    // arrange items
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+
+    time {
+        padding-inline-start: 0.25rem;
+    }
 }
