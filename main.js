@@ -66,6 +66,23 @@ const renderData = (json) => {
             previousTime.append(previousTimeText, previousTimeValue); 
             previousTime.className = "previous-time";
         }
+
+        // tracker setting node <button.tracker-settings>
+        const trackerSettingButton = document.createElement("button");
+        tracker.appendChild(trackerSettingButton);
+        trackerSettingButton.className = "tracker-settings";
+        fetch("./images/icon-ellipsis.svg")
+            .then(response => response.text())
+            .then(data => {
+                // parse xml document, adopted/appended to a DOM node
+                const domParser = new DOMParser();
+                const xmlDoc = domParser.parseFromString(data, "text/xml");
+                const iconEllipsisSVG = xmlDoc.querySelector("svg");
+                iconEllipsisSVG.setAttribute("class", "ellipsis-icon");
+                // append svg to dom
+                trackerSettingButton.appendChild(iconEllipsisSVG);
+            })
+            .catch(error => console.error("ERROR:", error));
     });
 };
 // SELECT FOR DASHBOARD CONTENT

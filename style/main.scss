@@ -199,7 +199,6 @@ body {
 .previous-time {
     font-size: 0.8em;
     color: $Navy-200;
-    margin-inline-start: auto;
 
     // arrange items
     display: flex;
@@ -208,5 +207,28 @@ body {
 
     time {
         padding-inline-start: 0.25rem;
+    }
+}
+// TRACKER SETTINGS - ellipsis icon
+.tracker-settings {
+    all: unset;
+    padding: 0.5rem;
+    width: fit-content;
+
+    // arrange content
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    // arrange self
+    position: absolute;
+    right: 1rem;
+}
+.tracker-settings:hover {
+    cursor: pointer;
+    
+    // svg icon: change color-fill
+    .ellipsis-icon path {
+        fill: white;
     }
 }

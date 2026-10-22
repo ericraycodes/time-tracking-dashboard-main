@@ -150,8 +150,6 @@ body {
 .previous-time {
   font-size: 0.8em;
   color: hsl(236deg, 100%, 87%);
-  -webkit-margin-start: auto;
-          margin-inline-start: auto;
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-end;
@@ -159,4 +157,24 @@ body {
 .previous-time time {
   -webkit-padding-start: 0.25rem;
           padding-inline-start: 0.25rem;
+}
+
+.tracker-settings {
+  all: unset;
+  padding: 0.5rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 1rem;
+}
+
+.tracker-settings:hover {
+  cursor: pointer;
+}
+.tracker-settings:hover .ellipsis-icon path {
+  fill: white;
 }
