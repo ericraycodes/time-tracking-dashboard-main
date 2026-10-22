@@ -116,6 +116,12 @@ body {
   position: relative;
 }
 
+.tracker:hover {
+  cursor: pointer;
+  background-color: hsl(235deg, 46%, 20%);
+  background-color: hsl(235deg, 46%, 30%);
+}
+
 .tracker::before {
   content: "";
   height: 100%;

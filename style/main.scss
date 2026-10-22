@@ -164,6 +164,11 @@ body {
     // anchor ::before's position
     position: relative;
 }
+.tracker:hover{
+    cursor: pointer;
+    background-color: $Navy-900;
+    background-color: hsl(235, 46%, 30%);
+}
 .tracker::before {
     content: "";
     height: 100%;
@@ -226,7 +231,7 @@ body {
 }
 .tracker-settings:hover {
     cursor: pointer;
-    
+
     // svg icon: change color-fill
     .ellipsis-icon path {
         fill: white;
