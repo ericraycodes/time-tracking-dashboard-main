@@ -1,14 +1,8 @@
 
 
 // ---  VARIABLES
-// primary colors
+// primary color
 $Purple-600: hsl(246, 80%, 60%);
-$Orange-300-work: hsl(15, 100%, 70%);
-$Blue-300-play: hsl(195, 74%, 62%);
-$Pink-400-study: hsl(348, 100%, 68%);
-$Green-400-exercise: hsl(145, 58%, 55%);
-$Purple-700-social: hsl(264, 64%, 52%);
-$Yellow-300-self-care: hsl(43, 84%, 65%);
 // neutral colors
 $Navy-950: hsl(226, 43%, 10%);
 $Navy-900: hsl(235, 46%, 20%);
@@ -16,6 +10,23 @@ $Purple-500: hsl(235, 45%, 61%);
 $Navy-200: hsl(236, 100%, 87%);
 // body font size: 18px
 $Font-size-body: calc((18/16) * 1rem);
+
+
+// CUSTOM PROPERTIES
+:root {
+    // Orange-300
+    --color-work: hsl(15, 100%, 70%);
+    // Blue-300
+    --color-play: hsl(195, 74%, 62%);
+    // Pink-400
+    --color-study: hsl(348, 100%, 68%);
+    // Green-400
+    --color-exercise: hsl(145, 58%, 55%);
+    // Purple-700
+    --color-social: hsl(264, 64%, 52%);
+    // Yellow-300
+    --color-self-care: hsl(43, 84%, 65%);
+}
 
 
 // INITIAL RULES
@@ -117,7 +128,7 @@ body {
     // remove native styles
     all: unset;
     // larger touch area
-    padding: 1rem;
+    padding: 0.5rem;
     // typo
     font-weight: 300;
     // no 'clicked' state
@@ -126,4 +137,66 @@ body {
 .button:hover {
     color: white;
     cursor: pointer;
+}
+
+// -----    DASHBOARD
+.dashboard {
+    // arrange items
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+// TIME TRACKER
+.tracker {
+    background-color: $Navy-900;
+    border-radius: 1rem;
+    padding: 1.5rem;
+
+    // Give space for the ::before child;
+    // to not over overlap .dashboard's flex-gap.
+    margin-block-start: 2.5rem;
+
+    // arrange item
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    // anchor ::before's position
+    position: relative;
+}
+.tracker::before {
+    content: "";
+    height: 100%;
+    width: 100%;
+    border-radius: 1rem;
+
+    // decor, dynamic values
+    background-color: var(--before-background-color);
+    background-image: var(--before-svg);
+    background-repeat: no-repeat;
+    background-position: right 1rem top -0.25rem;
+    
+    // placement, behind parent
+    position: absolute;
+    top: -2.25rem;
+    left: 0;
+    z-index: -1;
+}
+.activity {
+    font-size: 1em;
+    font-weight: 500;
+}
+.timeframe {
+    // arrange items
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.current-time {
+    font-size: 1.75em;
+    font-weight: 300;
+}
+.previous-time {
+    font-size: 0.8em;
+    color: $Navy-200;
 }

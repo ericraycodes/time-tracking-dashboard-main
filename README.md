@@ -56,6 +56,28 @@ git commit -m "heading right here..
 > The body is ended with a closing quotation mark."
 ```
 
+I used `background-image` inside `::before` pseudoclass for the trackers' respective decoration. It was done *dynamically*, hence, paired with DOM's `element.style.setProperty()` via JavaScript to dynamically create *inline CSS custom-properties* accessible to CSS stylesheets.
+```js
+  // <section.tracker> node
+  const tracker = document.createElement("section");
+  tracker.className= "tracker";
+  dashboard.appendChild(tracker);
+  // inline style properties - CSS custom properties
+  const titleKebabCase = object.title.toLowerCase().split(" ").join("-");
+  tracker.style.setProperty("--before-svg", `url("../images/icon-${titleKebabCase}.svg")`);
+  tracker.style.setProperty("--before-background-color", `var(--color-${titleKebabCase})`);
+```
+```css
+.tracker::before {
+    /* decor, dynamic values */
+    background-color: var(--before-background-color);
+    background-image: var(--before-svg);
+    background-repeat: no-repeat;
+    background-position: right 1rem top -0.25rem;
+}
+```
+
+
 ### Continued development
 
 - Mobile-First Design

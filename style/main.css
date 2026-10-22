@@ -1,3 +1,12 @@
+:root {
+  --color-work: hsl(15, 100%, 70%);
+  --color-play: hsl(195, 74%, 62%);
+  --color-study: hsl(348, 100%, 68%);
+  --color-exercise: hsl(145, 58%, 55%);
+  --color-social: hsl(264, 64%, 52%);
+  --color-self-care: hsl(43, 84%, 65%);
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -79,7 +88,7 @@ body {
 
 .button {
   all: unset;
-  padding: 1rem;
+  padding: 0.5rem;
   font-weight: 300;
   color: hsl(235deg, 45%, 61%);
 }
@@ -87,4 +96,58 @@ body {
 .button:hover {
   color: white;
   cursor: pointer;
+}
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.tracker {
+  background-color: hsl(235deg, 46%, 20%);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  -webkit-margin-before: 2.5rem;
+          margin-block-start: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.tracker::before {
+  content: "";
+  height: 100%;
+  width: 100%;
+  border-radius: 1rem;
+  background-color: var(--before-background-color);
+  background-image: var(--before-svg);
+  background-repeat: no-repeat;
+  background-position: right 1rem top -0.25rem;
+  position: absolute;
+  top: -2.25rem;
+  left: 0;
+  z-index: -1;
+}
+
+.activity {
+  font-size: 1em;
+  font-weight: 500;
+}
+
+.timeframe {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.current-time {
+  font-size: 1.75em;
+  font-weight: 300;
+}
+
+.previous-time {
+  font-size: 0.8em;
+  color: hsl(236deg, 100%, 87%);
 }

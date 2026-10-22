@@ -25,11 +25,16 @@ const renderData = (json) => {
         const tracker = document.createElement("section");
         tracker.className= "tracker";
         dashboard.appendChild(tracker);
+        // inline style properties - CSS custom properties
+        const titleKebabCase = object.title.toLowerCase().split(" ").join("-");
+        tracker.style.setProperty("--before-svg", `url("../images/icon-${titleKebabCase}.svg")`);
+        tracker.style.setProperty("--before-background-color", `var(--color-${titleKebabCase})`);
 
         // tracker heading node
         const trackerHeading = document.createElement("h2");
         trackerHeading.textContent = object.title;
         tracker.appendChild(trackerHeading);
+        trackerHeading.className = "activity";
 
         console.log("\n", object.title)
         for (const [timeframe, time] of  Object.entries(object.timeframes)) {
@@ -39,11 +44,13 @@ const renderData = (json) => {
             const div = document.createElement("div");
             tracker.appendChild(div);
             div.className = timeframe;
+            div.classList.add("timeframe");
             
             // current time node
             const currentTime = document.createElement("time");
             currentTime.textContent = appropriateHourValueUnit(time.current);
             div.appendChild(currentTime);
+            currentTime.className = "current-time";
             
             // previous time node
             const paragraph = document.createElement("p");
@@ -55,6 +62,7 @@ const renderData = (json) => {
             const previousTime = document.createElement("time");
             previousTime.textContent = appropriateHourValueUnit(time.previous);
             paragraph.append(paragraphText, " - ", previousTime); 
+            paragraph.className = "previous-time";
         }
     });
 };
