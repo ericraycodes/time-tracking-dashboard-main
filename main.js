@@ -71,6 +71,8 @@ const renderData = (json) => {
         const trackerSettingButton = document.createElement("button");
         tracker.appendChild(trackerSettingButton);
         trackerSettingButton.className = "tracker-settings";
+        trackerSettingButton.setAttribute("type", "button");
+        trackerSettingButton.setAttribute("aria-label", "Time tracker settings");
         fetch("./images/icon-ellipsis.svg")
             .then(response => response.text())
             .then(data => {
