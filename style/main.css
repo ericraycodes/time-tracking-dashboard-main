@@ -12,15 +12,15 @@
   margin: 0;
 }
 
-.dashboard.daily div:not(.daily) {
+.dashboard.daily .timeframe:not(.daily) {
   display: none;
 }
 
-.dashboard.weekly div:not(.weekly) {
+.dashboard.weekly .timeframe:not(.weekly) {
   display: none;
 }
 
-.dashboard.monthly div:not(.monthly) {
+.dashboard.monthly .timeframe:not(.monthly) {
   display: none;
 }
 
@@ -36,17 +36,14 @@ body {
   color: White;
   padding-block: 3.75rem;
   padding-inline: 1.5rem;
-  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.dashboard {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  align-items: center;
-}
-
-.header,
-.dashboard {
-  max-width: 22rem;
-  width: 100%;
 }
 
 .header {
@@ -66,8 +63,8 @@ body {
 }
 
 .profile-picture {
-  width: 4rem;
-  height: 4rem;
+  width: 4.5rem;
+  height: 4.5rem;
   border: 0.2rem solid white;
   border-radius: 50%;
 }
@@ -104,12 +101,6 @@ body {
 .button:hover {
   color: white;
   cursor: pointer;
-}
-
-.dashboard {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
 }
 
 .tracker {
