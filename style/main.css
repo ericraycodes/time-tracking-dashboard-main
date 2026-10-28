@@ -40,6 +40,13 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  align-items: center;
+}
+
+.header,
+.dashboard {
+  max-width: 22rem;
+  width: 100%;
 }
 
 .header {
@@ -53,6 +60,7 @@ body {
   border-radius: 1rem;
   display: flex;
   align-items: center;
+  justify-content: space-around;
   gap: 1rem;
   padding: 2rem;
 }
@@ -118,7 +126,6 @@ body {
 
 .tracker:hover {
   cursor: pointer;
-  background-color: hsl(235deg, 46%, 20%);
   background-color: hsl(235deg, 46%, 30%);
 }
 

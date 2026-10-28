@@ -71,6 +71,14 @@ body {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    align-items: center;
+}
+.header,
+.dashboard {
+    // 352px, maximum for mobile layout
+    max-width: 22rem;
+    // keep the width stretched out
+    width: 100%;
 }
 
 // ---  HEADER
@@ -87,6 +95,7 @@ body {
     // arrange content: horizontal
     display: flex;
     align-items: center;
+    justify-content: space-around;
     gap: 1rem;
 
     // spaces
@@ -166,7 +175,6 @@ body {
 }
 .tracker:hover{
     cursor: pointer;
-    background-color: $Navy-900;
     background-color: hsl(235, 46%, 30%);
 }
 .tracker::before {
@@ -237,3 +245,4 @@ body {
         fill: white;
     }
 }
+// -----    end of MOBILE LAYOUT
