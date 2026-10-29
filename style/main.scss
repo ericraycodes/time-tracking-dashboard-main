@@ -237,3 +237,49 @@ body {
     }
 }
 // -----    end of MOBILE LAYOUT
+
+
+// -----    TABLETS: 480px - 1024px
+// 480px min
+@media screen and (min-width: 30rem) {
+    body {
+        // remove spaces
+        padding-inline: unset;
+    }
+    .dashboard {
+        width: 90%;
+        max-width: 29rem; // 464px
+
+        // arrange items
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .header {
+        grid-column: 1/3;
+    }
+    .profile {
+        justify-content: center;
+        gap: 2rem;
+    }
+    .heading {
+        strong {
+            font-size: 2em;
+        }
+    }
+    .dashboard-display-controller {
+        padding-inline: 1.5rem;
+    }
+    .tracker {
+        max-width: 16rem; // 256px
+        gap: 1rem;
+    }
+    .timeframe {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    .current-time {
+        font-size: 2.5em;
+    }
+}
+// -----    end of TABLETS
