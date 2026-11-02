@@ -245,6 +245,10 @@ body {
     body {
         // remove spaces
         padding-inline: unset;
+
+        // center the dashboard
+        min-height: 100vh;
+        align-items: center;
     }
     .dashboard {
         width: 90%;
@@ -287,11 +291,6 @@ body {
 
 // -----    DESKTOP: 1024px
 @media screen and (min-width: 64rem) {
-    body {
-        // arrange to center the dashboard
-        min-height: 100vh;
-        align-items: center;
-    }
     .dashboard {
         // unset tablet design values
         max-width: unset;

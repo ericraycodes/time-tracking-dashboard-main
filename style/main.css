@@ -186,6 +186,8 @@ body {
 @media screen and (min-width: 30rem) {
   body {
     padding-inline: unset;
+    min-height: 100vh;
+    align-items: center;
   }
   .dashboard {
     width: 90%;
@@ -220,10 +222,6 @@ body {
   }
 }
 @media screen and (min-width: 64rem) {
-  body {
-    min-height: 100vh;
-    align-items: center;
-  }
   .dashboard {
     max-width: unset;
     width: unset;
