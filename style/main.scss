@@ -283,3 +283,72 @@ body {
     }
 }
 // -----    end of TABLETS
+
+
+// -----    DESKTOP: 1024px
+@media screen and (min-width: 64rem) {
+    body {
+        // arrange to center the dashboard
+        min-height: 100vh;
+        align-items: center;
+    }
+    .dashboard {
+        // unset tablet design values
+        max-width: unset;
+        width: unset;
+
+        // arrange dashboard trackers
+        grid-template-columns: repeat(2, 13rem);
+        grid-template-areas: 
+        "head   work    play    study"
+        "head   exercise social self-care";
+
+        // grid areas
+        .header {
+            grid-area: head;
+        }
+        .work {
+            grid-area: work;
+        }
+        .play {
+            grid-area: play;
+        }
+        .study {
+            grid-area: study;
+        }
+        .exercise {
+            grid-area: exercise;
+        }
+        .social {
+            grid-area: social;
+        }
+        .self-care {
+            grid-area: self-care;
+        }
+    }
+    .header {
+        // arrange content vertically
+        display: flex;
+        flex-direction: column;
+    }
+    .profile {
+        // arrange content vertically
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: start;
+        flex: 1;
+        padding: 1.5rem;
+    }
+    .profile-picture {
+        width: 4rem;
+        height: 4rem;
+    }
+    .dashboard-display-controller {
+        // arrange content vertically
+        flex-direction: column;
+    }
+    .tracker {
+        min-width: 13rem;
+    }
+}
+// -----    end of DESKTOP

@@ -219,3 +219,57 @@ body {
     font-size: 2.5em;
   }
 }
+@media screen and (min-width: 64rem) {
+  body {
+    min-height: 100vh;
+    align-items: center;
+  }
+  .dashboard {
+    max-width: unset;
+    width: unset;
+    grid-template-columns: repeat(2, 13rem);
+    grid-template-areas: "head   work    play    study" "head   exercise social self-care";
+  }
+  .dashboard .header {
+    grid-area: head;
+  }
+  .dashboard .work {
+    grid-area: work;
+  }
+  .dashboard .play {
+    grid-area: play;
+  }
+  .dashboard .study {
+    grid-area: study;
+  }
+  .dashboard .exercise {
+    grid-area: exercise;
+  }
+  .dashboard .social {
+    grid-area: social;
+  }
+  .dashboard .self-care {
+    grid-area: self-care;
+  }
+  .header {
+    display: flex;
+    flex-direction: column;
+  }
+  .profile {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: start;
+    flex: 1;
+    padding: 1.5rem;
+  }
+  .profile-picture {
+    width: 4rem;
+    height: 4rem;
+  }
+  .dashboard-display-controller {
+    flex-direction: column;
+  }
+  .tracker {
+    min-width: 13rem;
+  }
+}
