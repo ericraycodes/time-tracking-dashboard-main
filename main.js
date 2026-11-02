@@ -84,6 +84,9 @@ const renderData = (json) => {
                 iconEllipsisSVG.setAttribute("class", "ellipsis-icon");
                 // append svg to dom
                 trackerSettingButton.appendChild(iconEllipsisSVG);
+                // dynamic viewbox
+                const box = iconEllipsisSVG.getBBox();
+                iconEllipsisSVG.setAttribute("viewBox", `${box.x} ${box.y} ${box.width} ${box.height}`);
             })
             .catch(error => console.error("ERROR:", error));
     });
