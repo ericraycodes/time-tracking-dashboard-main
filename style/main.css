@@ -227,7 +227,7 @@ body {
   .dashboard {
     max-width: unset;
     width: unset;
-    grid-template-columns: repeat(2, 13rem);
+    grid-template-columns: repeat(2, 12rem);
     grid-template-areas: "head   work    play    study" "head   exercise social self-care";
   }
   .dashboard .header {
@@ -262,6 +262,9 @@ body {
     flex: 1;
     padding: 1.5rem;
   }
+  .profile strong {
+    font-size: 1.75em;
+  }
   .profile-picture {
     width: 4rem;
     height: 4rem;
@@ -269,7 +272,19 @@ body {
   .dashboard-display-controller {
     flex-direction: column;
   }
+  .button {
+    font-size: 0.85em;
+  }
   .tracker {
-    min-width: 13rem;
+    min-width: 12.5rem;
+  }
+  .activity {
+    font-size: 0.85em;
+  }
+  .previous-time {
+    font-size: 0.7em;
+  }
+  .tracker-settings svg {
+    width: 1em;
   }
 }

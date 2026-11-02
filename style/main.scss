@@ -298,7 +298,7 @@ body {
         width: unset;
 
         // arrange dashboard trackers
-        grid-template-columns: repeat(2, 13rem);
+        grid-template-columns: repeat(2, 12rem);
         grid-template-areas: 
         "head   work    play    study"
         "head   exercise social self-care";
@@ -338,6 +338,10 @@ body {
         justify-content: start;
         flex: 1;
         padding: 1.5rem;
+
+        strong {
+            font-size: 1.75em;
+        }
     }
     .profile-picture {
         width: 4rem;
@@ -347,8 +351,22 @@ body {
         // arrange content vertically
         flex-direction: column;
     }
+    .button {
+        font-size: 0.85em;
+    }
     .tracker {
-        min-width: 13rem;
+        min-width: 12.5rem;
+    }
+    .activity {
+        font-size: 0.85em;
+    }
+    .previous-time {
+        font-size: 0.7em;
+    }
+    .tracker-settings {
+        svg {
+            width: 1em;
+        }
     }
 }
 // -----    end of DESKTOP
