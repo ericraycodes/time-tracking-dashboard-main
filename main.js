@@ -27,6 +27,7 @@ const renderData = (json) => {
         dashboard.appendChild(tracker);
         // inline style properties - CSS custom properties
         const titleKebabCase = object.title.toLowerCase().split(" ").join("-");
+        tracker.classList.add(titleKebabCase);
         tracker.style.setProperty("--before-svg", `url("../images/icon-${titleKebabCase}.svg")`);
         tracker.style.setProperty("--before-background-color", `var(--color-${titleKebabCase})`);
 
