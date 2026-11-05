@@ -52,6 +52,22 @@ $Font-size-body: calc((18/16) * 1rem);
         display: none;
     }
 }
+// -----    VERTICAL FLIP TRANSITION WHEN SHOWING DATA
+.dashboard {
+    .current-time,
+    .previous-time {
+        visibility: hidden;
+        transform: scaleY(-1);
+        transition: transform 100ms ease;
+    }
+}
+.dashboard.vertical-flip {
+    .current-time,
+    .previous-time {
+        transform: scaleY(1);
+        visibility: visible;
+    }
+}
 
 // -----    CLICKED STATE STYLING OF BUTTONS
 .button.clicked {

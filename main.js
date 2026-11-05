@@ -37,9 +37,9 @@ const renderData = (json) => {
         tracker.appendChild(trackerHeading);
         trackerHeading.className = "activity";
 
-        console.log("\n", object.title)
+        // console.log("\n", object.title)
         for (const [timeframe, time] of  Object.entries(object.timeframes)) {
-            console.log(timeframe, time);
+            // console.log(timeframe, time);
 
             // timeframe node
             const div = document.createElement("div");
@@ -100,13 +100,7 @@ const displaySelectedDashboardContent = (event) => {
      *  3. hide data that is not corresponded to the 'clicked' <button>
      *  4. when another <button> is clicked, cycle back to step 1
      */
-
-    // check which button is clicked
     if (event.target.classList.contains("button")) {
-        // console.log(event.target);
-
-        // 1. <button> owner of the 'clicked' state
-        // 2. show corresponding <.timeframe>
         switch (event.target.id) {
             case "show-daily-time-button":
                 // clicked state of button
@@ -141,6 +135,11 @@ const displaySelectedDashboardContent = (event) => {
             default: break;
         }
     }
+    // transition effects when showing data
+    dashboard.classList.remove("vertical-flip");
+    setTimeout(() => {
+        dashboard.classList.add("vertical-flip");
+    }, 50);
 };
 
 

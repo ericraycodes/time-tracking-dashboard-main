@@ -24,6 +24,19 @@
   display: none;
 }
 
+.dashboard .current-time,
+.dashboard .previous-time {
+  visibility: hidden;
+  transform: scaleY(-1);
+  transition: transform 100ms ease;
+}
+
+.dashboard.vertical-flip .current-time,
+.dashboard.vertical-flip .previous-time {
+  transform: scaleY(1);
+  visibility: visible;
+}
+
 .button.clicked {
   color: white;
 }
