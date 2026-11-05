@@ -36,16 +36,23 @@ $Font-size-body: calc((18/16) * 1rem);
 }
 
 
-// -----    DYNAMIC DISPLAY STYLING OF DASHBOARD CONTENT
-.dashboard.daily .timeframe:not(.daily) {
-    display: none;
+// -----    PRE STYLES FOR DYNAMIC SHOWING/HIDING OF DASHBOARD CONTENT BY TIMEFRAME
+.dashboard.daily {
+    .timeframe:not(.daily) {
+        display: none;
+    }
 }
-.dashboard.weekly .timeframe:not(.weekly) {
-    display: none;
+.dashboard.weekly {
+    .timeframe:not(.weekly) {
+        display: none;
+    }
 }
-.dashboard.monthly .timeframe:not(.monthly) {
-    display: none;
+.dashboard.monthly {
+    .timeframe:not(.monthly) {
+        display: none;
+    }
 }
+
 // -----    CLICKED STATE STYLING OF BUTTONS
 .button.clicked {
     color: white;
@@ -161,7 +168,7 @@ body {
     flex-direction: column;
     gap: 0.5rem;
 
-    // anchor ::before's position
+    // anchor .tracker::before's position
     position: relative;
 }
 .tracker:hover{

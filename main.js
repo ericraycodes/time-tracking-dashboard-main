@@ -93,38 +93,53 @@ const renderData = (json) => {
 };
 // SELECT FOR DASHBOARD CONTENT
 const displaySelectedDashboardContent = (event) => {
-    // manipulate <main #dashboard>'s classlist for which content to display
-    switch (event.target.id) {
-        case "show-daily-time-button":
-            // display state of dashboard
-            dashboard.classList.add("daily");
-            dashboard.classList.remove("weekly");
-            dashboard.classList.remove("monthly");
-            // clicked state of button
-            showDailyTimeButton.classList.add("clicked");
-            showWeeklyTimeButton.classList.remove("clicked");
-            showMonthlyTimeButton.classList.remove("clicked");
-            break;
-        case "show-weekly-time-button":
-            // display state of dashboard
-            dashboard.classList.remove("daily");
-            dashboard.classList.add("weekly");
-            dashboard.classList.remove("monthly");
-            // clicked state of button
-            showDailyTimeButton.classList.remove("clicked");
-            showWeeklyTimeButton.classList.add("clicked");
-            showMonthlyTimeButton.classList.remove("clicked");            break;
-        case "show-monthly-time-button":
-            // display state of dashboard
-            dashboard.classList.remove("daily");
-            dashboard.classList.remove("weekly");
-            dashboard.classList.add("monthly");
-            // clicked state of button
-            showDailyTimeButton.classList.remove("clicked");
-            showWeeklyTimeButton.classList.remove("clicked");
-            showMonthlyTimeButton.classList.add("clicked");
-            break;
-        default: break;
+    /**
+     * Data is shown correspondent to:
+     *  1. when a <button> is clicked, it solely owns the 'clicked' state
+     *  2. show <.timeframe> data that corresponds to 'clicked' <button>
+     *  3. hide data that is not corresponded to the 'clicked' <button>
+     *  4. when another <button> is clicked, cycle back to step 1
+     */
+
+    // check which button is clicked
+    if (event.target.classList.contains("button")) {
+        // console.log(event.target);
+
+        // 1. <button> owner of the 'clicked' state
+        // 2. show corresponding <.timeframe>
+        switch (event.target.id) {
+            case "show-daily-time-button":
+                // clicked state of button
+                showDailyTimeButton.classList.add("clicked");
+                showWeeklyTimeButton.classList.remove("clicked");
+                showMonthlyTimeButton.classList.remove("clicked");
+                // display state of dashboard
+                dashboard.classList.add("daily");
+                dashboard.classList.remove("weekly");
+                dashboard.classList.remove("monthly");
+                break;
+            case "show-weekly-time-button":
+                // clicked state of button
+                showDailyTimeButton.classList.remove("clicked");
+                showWeeklyTimeButton.classList.add("clicked");
+                showMonthlyTimeButton.classList.remove("clicked");
+                // display state of dashboard
+                dashboard.classList.remove("daily");
+                dashboard.classList.add("weekly");
+                dashboard.classList.remove("monthly");
+                break;
+            case "show-monthly-time-button":
+                // clicked state of button
+                showDailyTimeButton.classList.remove("clicked");
+                showWeeklyTimeButton.classList.remove("clicked");
+                showMonthlyTimeButton.classList.add("clicked");
+                // display state of dashboard
+                dashboard.classList.remove("daily");
+                dashboard.classList.remove("weekly");
+                dashboard.classList.add("monthly");
+                break;
+            default: break;
+        }
     }
 };
 
