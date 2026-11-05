@@ -28,12 +28,16 @@
 .dashboard .previous-time {
   visibility: hidden;
   transform: scaleY(-1);
-  transition: transform 100ms ease;
+  transition: transform 200ms ease;
 }
 
 .dashboard.vertical-flip .current-time,
 .dashboard.vertical-flip .previous-time {
   transform: scaleY(1);
+}
+
+.dashboard.content-visible .current-time,
+.dashboard.content-visible .previous-time {
   visibility: visible;
 }
 
@@ -48,7 +52,7 @@ body {
   font-size: 1.125rem;
   color: White;
   padding-block: 3.75rem;
-  padding-inline: 1.5rem;
+  padding-inline: clamp(1.25rem, 6.4vw, 1.5rem);
   display: flex;
   justify-content: center;
 }
@@ -120,6 +124,7 @@ body {
   background-color: hsl(235deg, 46%, 20%);
   border-radius: 1rem;
   padding: 1.5rem;
+  padding-inline: clamp(1.25rem, 6.4vw, 1.5rem);
   -webkit-margin-before: 2.5rem;
           margin-block-start: 2.5rem;
   display: flex;
@@ -157,6 +162,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1rem;
 }
 
 .current-time {

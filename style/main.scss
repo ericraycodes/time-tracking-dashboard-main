@@ -58,13 +58,18 @@ $Font-size-body: calc((18/16) * 1rem);
     .previous-time {
         visibility: hidden;
         transform: scaleY(-1);
-        transition: transform 100ms ease;
+        transition: transform 200ms ease;
     }
 }
 .dashboard.vertical-flip {
     .current-time,
     .previous-time {
         transform: scaleY(1);
+    }
+}
+.dashboard.content-visible {
+    .current-time,
+    .previous-time {
         visibility: visible;
     }
 }
@@ -87,7 +92,7 @@ body {
 
     // spaces
     padding-block: 3.75rem;
-    padding-inline: 1.5rem;
+    padding-inline: clamp(1.25rem, 6.4vw, 1.5rem);
 
     // arrange content to center
     display: flex;
@@ -174,6 +179,7 @@ body {
     background-color: $Navy-900;
     border-radius: 1rem;
     padding: 1.5rem;
+    padding-inline: clamp(1.25rem, 6.4vw, 1.5rem);
 
     // Give space for the ::before child;
     // to not over overlap .dashboard's flex-gap.
@@ -218,6 +224,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 1rem;
 }
 .current-time {
     font-size: 1.75em;
@@ -259,6 +266,8 @@ body {
         fill: white;
     }
 }
+
+
 // -----    end of MOBILE LAYOUT
 
 

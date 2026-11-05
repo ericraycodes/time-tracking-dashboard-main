@@ -37,10 +37,7 @@ const renderData = (json) => {
         tracker.appendChild(trackerHeading);
         trackerHeading.className = "activity";
 
-        // console.log("\n", object.title)
         for (const [timeframe, time] of  Object.entries(object.timeframes)) {
-            // console.log(timeframe, time);
-
             // timeframe node
             const div = document.createElement("div");
             tracker.appendChild(div);
@@ -134,12 +131,17 @@ const displaySelectedDashboardContent = (event) => {
                 break;
             default: break;
         }
+        
+        // transition effects when showing data
+        dashboard.classList.remove("content-visible");
+        dashboard.classList.remove("vertical-flip");
+        setTimeout(() => {
+            dashboard.classList.add("vertical-flip");
+        }, 75);
+        setTimeout(() => {
+            dashboard.classList.add("content-visible");
+        }, 100);
     }
-    // transition effects when showing data
-    dashboard.classList.remove("vertical-flip");
-    setTimeout(() => {
-        dashboard.classList.add("vertical-flip");
-    }, 50);
 };
 
 
