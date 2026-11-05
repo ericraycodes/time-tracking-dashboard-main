@@ -202,6 +202,14 @@ body {
   fill: white;
 }
 
+@media screen and (max-width: 22.5rem) {
+  body {
+    padding-inline: 0.75rem;
+  }
+  .profile {
+    padding-inline: 1rem;
+  }
+}
 @media screen and (min-width: 30rem) {
   body {
     padding-inline: unset;

@@ -267,7 +267,15 @@ body {
     }
 }
 
-
+// make texts and spacing look nice on narrow screens
+@media screen and (max-width: 22.5rem) {
+    body {
+        padding-inline: 0.75rem;
+    }
+    .profile {
+        padding-inline: 1rem;
+    }
+}
 // -----    end of MOBILE LAYOUT
 
 
