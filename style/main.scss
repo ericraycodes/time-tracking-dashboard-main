@@ -92,7 +92,7 @@ body {
 
     // spaces
     padding-block: 3.75rem;
-    padding-inline: clamp(1.25rem, 6.4vw, 1.5rem);
+    padding-inline: 1.5rem;
 
     // arrange content to center
     display: flex;
@@ -270,10 +270,14 @@ body {
 // make texts and spacing look nice on narrow screens
 @media screen and (max-width: 22.5rem) {
     body {
-        padding-inline: 0.75rem;
+        padding-inline: 1rem;
+    }
+    .dashboard {
+        width: 100%;
     }
     .profile {
         padding-inline: 1rem;
+        justify-content: center;
     }
 }
 // -----    end of MOBILE LAYOUT
